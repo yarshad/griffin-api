@@ -14,3 +14,5 @@ libraryDependencies += "com.softwaremill.macwire" %% "util" % "2.2.2"
 libraryDependencies += "com.softwaremill.macwire" %% "proxy" % "2.2.2"
 
 
+
+
