@@ -6,6 +6,7 @@
 
 
 GET /quotes/:symbol          controllers.DataController.getQuote(symbol)
+GET /options/:symbol/:expiration          controllers.DataController.getOptionsByExpiration(symbol,expiration : Long)
 
 #GET     /                           controllers.HomeController.index
 # An example controller showing how to use dependency injection
