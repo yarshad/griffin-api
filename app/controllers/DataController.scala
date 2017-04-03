@@ -18,6 +18,7 @@ class DataController (yahooService : YService)(implicit ec: ExecutionContext) ex
   }
 
   def getOptionsByExpiration(symbol: String, expiration: Long)= Action.async {
+    println("test")
     val result = yahooService.getOptionsByExpiration(symbol, expiration)
     result.map{ r=> Ok(Json.toJson(r)) }
   }
