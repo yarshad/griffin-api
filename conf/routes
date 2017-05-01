@@ -1,7 +1,7 @@
 
 
 GET /quotes/:symbol                       controllers.YahooController.getQuote(symbol)
-GET /options/:symbol/:expiration          controllers.YahooController.getOptionsByExpiration(symbol,expiration : Long)
+GET /options/:symbol/:expiration          controllers.YahooController.getOptionsByExpiration(symbol,expiration)
 
 
 #   //Tradier routes are working but just disabled for now

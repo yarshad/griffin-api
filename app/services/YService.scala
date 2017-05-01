@@ -43,8 +43,10 @@ class YService(ws: WSClient) {
     val change = (result \ "quote" \ "regularMarketChange").as[Double]
     val asOfDate: LocalDateTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(marketTime * 1000L), ZoneId.systemDefault())
     val expiries = yahooResult.expirationDates.map(d => LocalDateTime.ofInstant(Instant.ofEpochMilli(d * 1000L), ZoneOffset.UTC).toLocalDate)
+
+//    println(yahooResult.expirationDates.head)
     callOptions.flatten
-    Instrument(yahooResult.underlyingSymbol, spot, asOfDate, yahooResult.expirationDates, callOptions.flatten, putOptions.flatten)
+    Instrument(yahooResult.underlyingSymbol, spot, asOfDate, expiries, callOptions.flatten, putOptions.flatten)
   }
 
   def getOptionsByExpiration(symbol: String, expiration: Long)(implicit ec: ExecutionContext) : Future[Instrument] = {
